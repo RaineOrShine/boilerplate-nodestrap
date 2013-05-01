@@ -1,3 +1,7 @@
+# *** *DEPRECATED: Use [generator-nodestrap](https://github.com/RaineOrShine/generator-nodestrap) instead* ***
+
+---
+
 Scaffolding for a Heroku-ready, coffee-fueled web stack.
 **node + bower + bootstrap + backbone + creatable**
 
