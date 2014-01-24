@@ -1,0 +1,23 @@
+{
+  "name": "myproject",
+  "version": "0.0.0",
+  "authors": [
+    "metaraine <raineorshine@gmail.com>"
+  ],
+  "description": "My New Project",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3",
+    "underscore": "~1",
+    "backbone": "~1",
+    "creatable": "~3",
+    "rjs": "https://raw.github.com/metaraine/rjs/master/deploy/rjs-3.2.0.js"
+  }
+}

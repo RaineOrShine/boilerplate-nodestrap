@@ -1,5 +1,5 @@
 /******************************
-* Definitions
+* Constants
 *******************************/
 
 desktop = 1200px
@@ -10,6 +10,7 @@ mobile-media = "(max-width: %s)" % mobile
 tablet-scale = (tablet/desktop)
 mobile-scale = (mobile/desktop)
 
+basefont = 14px
 
 /******************************
 * Functions
@@ -28,15 +29,17 @@ box-shadow()
 
 gray(luminosity)
   hsl(0, 0, luminosity)
-  
-.cf:before, .cf:after
-    content " "
-    display table
-.cf:after
-    clear both
-.cf
-    *zoom 1
 
+font-size-scaled(size)
+  font-size round((size/basefont)% * 100, 3);
+  
+rscale(prop, value)
+  {prop} value
+  @media tablet-media
+    {prop} value * tablet-scale
+  @media mobile-media
+    {prop} value * mobile-scale
+    
 
 /******************************
 * Base
@@ -46,35 +49,98 @@ gray(luminosity)
   box-sizing border-box
 
 body
+  color black
+  background-color white
   font-family "Open Sans"
+  font-size basefont
   font-weight 300
-  font-size 150%
   line-height 1.5
+  margin 0
+  padding 0
+
+a,a:hover
+  text-decoration none
+
+p
+  margin-bottom 1.5em
+
+img
+  max-width 100%
 
 h1,h2,h3
   line-height 1
   font-weight 300
 
-a
-  text-decoration none
+h1
+  font-size-scaled 28px
+
+h2
+  font-size-scaled 19px
 
 li
   line-height 1.2
 
-p
-  margin-bottom 1.5em
-
 label, input, button, select, textarea
-  font-weight 300
-  font-size 16px
+  font-family "Open Sans"
+  font-weight 400
+  font-size-scaled 12px
+  line-height 2.2em
+  border solid 2px gray2
+  padding-left 1em
+  margin 0 0 1.5em 0
 
-.btn
-  font-weight 700
+fieldset
+  border 0
+  margin 0 0 1em 0
+  padding 0
+
+strong
+  font-weight 400
+
+section
+  padding 7% 0
+  overflow auto
+
+hr
+  border solid midgray
+  border-width 0 0 1px 0
+  margin-bottom 4%
+  padding-bottom 5%
 
 
 /******************************
-* Modules
+* Themes
 *******************************/
+
+.theme-light
+  color black
+  background-color white
+
+.theme-dark
+  color white
+  background-color black
+  a, a:hover
+    color black
+
+
+/******************************
+* Generic Modules
+*******************************/
+
+.front-and-center
+  text-align center
+
+.lead
+  font-size-scaled 18px
+
+content(w=850px)
+  max-width w
+  margin 0 auto
+  padding 0 2em
+  box-sizing content-box
+
+.content-full
+  padding 0 2em
 
 .vert
   display inline-block
@@ -91,16 +157,79 @@ center-spaced(space = 10%)
 .center-spaced
   center-spaced()
 
-.big-announce
-  font-size 156%
-  line-height 1.5
+.space-below-giant
+  margin-bottom 150px
+.space-below-big
+  margin-bottom 70px
+.space-below-medium
+  margin-bottom 40px
+.space-below
+  margin-bottom 20px
+.space-below-small
+  margin-bottom 10px
+.space-below-smaller
+  margin-bottom 5px
 
-.announce
-  font-size 140%
-  line-height 1.5
+ul.inline>li, ol.inline>li
+  padding-left 15px
+  padding-right 15px
+
+ul.inline-wide>li, ol.inline-wide>li
+  padding-left 30px
+  padding-right 30px
+
+.button
+  font-weight 400
+  background-color rgba(0,0,0,0.33)
+  transition background-color 0.5s ease
+  padding 10px 50px
+  border-radius 5px
+  max-width: 100%
+  line-height 40px
+  &:hover
+    background-color rgba(0,0,0,0.5)
+
+.button-large
+  font-size-scaled 18px
+  padding 15px 80px
+
+.flush-bottom
+  padding-bottom 0
+
+.hidden
+  display none
+
+.form-full input
+  width 100%
+
+marginlr(size)
+  margin-left size
+  margin-right size
+
+.indent1
+  marginlr 5%
+.indent2
+  marginlr 10%
+.indent3
+  marginlr 15%
+.indent4
+  marginlr 20%
 
 
 /******************************
-* Page-Specific
+* Site Modules
 *******************************/
+
+.page-title
+  font-size-scaled 24px
+
+.content
+  content(850px)
+
+.content-wide
+  content(1200px)
+
+.content-narrow
+  content(650px)
+
 
