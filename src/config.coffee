@@ -1,3 +1,3 @@
 exports.config =
-	port: 8221
+	port: 8181
 	sessionSecret: 'SECRET'

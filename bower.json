@@ -14,7 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "creatable": "~3",
     "rjs": "https://raw.github.com/metaraine/rjs/master/deploy/rjs-3.2.0.js"
   }
 }

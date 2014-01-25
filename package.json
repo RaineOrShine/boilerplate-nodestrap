@@ -21,7 +21,8 @@
     "grunt-contrib-concat": "~0.2",
     "grunt-contrib-clean": "~0.4",
     "grunt-shell": "~0.2",
-    "grunt-contrib-watch": "~0.5"
+    "grunt-contrib-watch": "~0.5",
+    "clientjade": "~0.1"
   },
   "readmeFilename": "README.md",
   "main": "app.js",
